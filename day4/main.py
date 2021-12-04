@@ -82,7 +82,6 @@ def playingBingo(numbers, bingoCards):
     lastScore = 0
     for number in numbers:
         print(number , " NUMMER: " , number , "!")
-        #sign of bingoCards
         id = 0
         winners = []
         for bingoCard in bingoCards:
@@ -95,11 +94,9 @@ def playingBingo(numbers, bingoCards):
                         firstScore = lastScore
                     winners.append(id)
             id += 1
+        # reverse the list to make it easier to pop
         winners = winners[::-1]
         for winner in winners:
-            print("WINNERS")
-            print(winners)
-            print(len(bingoCards))
             bingoCards.pop(winner)
         if len(bingoCards) == 0:
             break
