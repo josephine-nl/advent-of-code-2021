@@ -11,7 +11,6 @@ def prepData():
     numbers = lines[0].split(",")
     bingoCards = []
     for i in range(2, len(lines), 6):
-        print(lines[i:i+5])
         bingoCard = makeBingoCard(lines[i:i+5])
         bingoCards.append(bingoCard)
     return [numbers, bingoCards]
@@ -45,12 +44,10 @@ def checkBingo(id, BingoCard):
     #Vertical Check
     for index, values in BingoCard.iterrows():
         if(checkLine(values)):
-            print("WINN:" + str(id))
             return True
     #Horizontal Check
     for index, values in BingoCard.iteritems():
         if(checkLine(values)):
-            print("WINN:" + str(id))
             return True
     return False
 
@@ -63,7 +60,6 @@ def signNumberOfBingoCard(id, bingoCard, number):
                 print("crossed of: ", number)
                 printBingoCard(id, bingoCard)
                 return True
-    printBingoCard(id, bingoCard)
     return False
 
 def calculateScore(number, bingoCard):
@@ -89,7 +85,6 @@ def playingBingo(numbers, bingoCards):
                 if(checkBingo(id, bingoCard)):
                     print("BINGGOO!")
                     lastScore = calculateScore(number, bingoCard )
-                    print("WINNER WINNER CHICKEN DINNER: " + str(lastScore))
                     if(firstScore == 0):
                         firstScore = lastScore
                     winners.append(id)
