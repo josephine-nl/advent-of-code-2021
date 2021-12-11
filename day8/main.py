@@ -58,7 +58,6 @@ def findTranslation(line):
 
     #find the 6 to figure out c/f, only 6len with no c
     numbersLen6 = getOptionsSpecificLen(line, 6)
-    print(numbersLen6)
     for number in numbersLen6:
         if str(number).find(cf[0])==-1:
             translation[2] = cf[0]
@@ -86,7 +85,6 @@ def findTranslation(line):
     elif str(number9).find(ge[1])==-1:
         translation[4] = ge[1]
         translation[6] = ge[0]
-
     print(translation)
     return translation
 
@@ -133,13 +131,11 @@ def translate(translation, number):
     translation = "".join(translation)
     for character in number:
         sequence += str(translation.find(character))
-    #print("seg", sequence)
     if ''.join(sorted(sequence)) in trans:
         result = trans[''.join(sorted(sequence))]
     else:
         print("Translation: ",translation)
         print("Error", ''.join(sorted(sequence)))
-    #print("res", result)
     return result
 
 [lines, input, output] = loadfile("day8/data.txt")
