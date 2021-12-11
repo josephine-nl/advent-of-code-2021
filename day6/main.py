@@ -19,7 +19,7 @@ def FishSimulation(fishies, numberOfDays, startReproduce, betweenReproduce):
             if timeframe == 0:
                 #new fishies
                 nextdayFishies[startReproduce] = amount
-
+]
                 if betweenReproduce in nextdayFishies:
                     nextdayFishies[betweenReproduce] = nextdayFishies[betweenReproduce] + amount
                 else:

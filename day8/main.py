@@ -36,7 +36,6 @@ def findTranslation(line):
     number1 = ""
     number4 = ""
     number7 = ""
-    number8 = ""
     #find easy numbers
     for value in line.split(" "):
         if len(value) == 2:
@@ -45,8 +44,6 @@ def findTranslation(line):
             number7 = ''.join(sorted(value))
         elif len(value) == 4:
             number4 =''.join(sorted(value))
-        elif len(value) == 7:
-            number8 = ''.join(sorted(value))
     #find a
     if number1 == number7[:2]:
         translation[0] = number7[2]
@@ -55,31 +52,27 @@ def findTranslation(line):
     else:
         translation[0] = number7[1]
     #cf 25
-    corf = number1[0]
-    forc= number1[1]
-
+    cf = number1
     #bd 13
     bd = number4.replace(number1[0],"").replace(number1[1],"")
-    bord = bd[0]
-    dorb = bd[1]
 
     #find the 6 to figure out c/f, only 6len with no c
     numbersLen6 = getOptionsSpecificLen(line, 6)
     print(numbersLen6)
     for number in numbersLen6:
-        if str(number).find(corf)==-1:
-            translation[2] = corf
-            translation[5] = forc
-        elif str(number) .find(forc)==-1:
-            translation[2] = forc
-            translation[5] = corf
+        if str(number).find(cf[0])==-1:
+            translation[2] = cf[0]
+            translation[5] = cf[1]
+        elif str(number) .find(cf[1])==-1:
+            translation[2] = cf[1]
+            translation[5] = cf[0]
     #find the 0 to figure out bd
-        elif str(number).find(bord)==-1:
-            translation[3] = bord
-            translation[1] = dorb
-        elif str(number).find(dorb)==-1:
-            translation[3] = dorb
-            translation[1] = bord
+        elif str(number).find(bd[0])==-1:
+            translation[3] = bd[0]
+            translation[1] = bd[1]
+        elif str(number).find(bd[1])==-1:
+            translation[3] = bd[1]
+            translation[1] = bd[0]
     # find the 9 to figure out eg
         else:
             number9 = number
